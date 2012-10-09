@@ -6,8 +6,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>cuckoo-hibersap-example-parent</artifactId>
         <groupId>de.akquinet.jbosscc</groupId>
+        <artifactId>cuckoo-hibersap-example-parent</artifactId>
         <version>1.0.0</version>
         <relativePath>../cuckoo-hibersap-example-parent/pom.xml</relativePath>
     </parent>
@@ -18,6 +18,10 @@
         <dependency>
             <groupId>org.hibersap</groupId>
             <artifactId>hibersap-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
         </dependency>
     </dependencies>
 </project>

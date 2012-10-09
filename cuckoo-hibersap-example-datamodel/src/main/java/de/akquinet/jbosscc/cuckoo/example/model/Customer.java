@@ -3,39 +3,43 @@ package de.akquinet.jbosscc.cuckoo.example.model;
 import org.hibersap.annotations.BapiStructure;
 import org.hibersap.annotations.Parameter;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @BapiStructure
 public class Customer implements Serializable
 {
-    @Parameter("CUSTNAME")
+    @Parameter( "CUSTNAME" )
     private String name;
 
-    @Parameter("FORM")
+    @Parameter( "FORM" )
     private String formOfAddress;
 
-    @Parameter("STREET")
+    @Parameter( "STREET" )
     private String street;
 
-    @Parameter("POBOX")
+    @Parameter( "POBOX" )
     private String poBox;
 
-    @Parameter("POSTCODE")
+    @Parameter( "POSTCODE" )
     private String postalCode;
 
-    @Parameter("CITY")
+    @Parameter( "CITY" )
     private String city;
 
-    @Parameter("COUNTR_ISO")
+    @Parameter( "COUNTR_ISO" )
+    @NotNull
+    @Size( min = 2, max = 2 )
     private String countryKeyIso;
 
-    @Parameter("REGION")
+    @Parameter( "REGION" )
     private String region;
 
-    @Parameter("PHONE")
+    @Parameter( "PHONE" )
     private String phoneNumber;
 
-    @Parameter("EMAIL")
+    @Parameter( "EMAIL" )
     private String email;
 
     public String getCity()

@@ -7,5 +7,6 @@
             <annotated-class>de.akquinet.jbosscc.cuckoo.example.model.CustomerSearch</annotated-class>
             <annotated-class>de.akquinet.jbosscc.cuckoo.example.model.CustomerChange</annotated-class>
         </annotated-classes>
+        <validation-mode>CALLBACK</validation-mode>
     </session-manager>
 </hibersap>
