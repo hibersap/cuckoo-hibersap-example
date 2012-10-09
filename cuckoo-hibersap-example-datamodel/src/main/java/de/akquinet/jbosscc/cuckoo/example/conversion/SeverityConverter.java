@@ -4,15 +4,14 @@ import de.akquinet.jbosscc.cuckoo.example.model.Severity;
 import org.hibersap.conversion.ConversionException;
 import org.hibersap.conversion.Converter;
 
-public class SeverityConverter implements Converter
+public class SeverityConverter implements Converter<Severity, String>
 {
-    public Severity convertToJava( Object sapValue ) throws ConversionException
+    public Severity convertToJava( String sapValue ) throws ConversionException
     {
-        String sapType = ( String ) sapValue;
-        return Severity.fromSapType( sapType.charAt( 0 ) );
+        return Severity.fromSapType( sapValue.charAt( 0 ) );
     }
 
-    public String convertToSap( Object javaValue ) throws ConversionException
+    public String convertToSap( Severity javaValue ) throws ConversionException
     {
         throw new UnsupportedOperationException( "The parameter should never be passed back to SAP" );
     }
