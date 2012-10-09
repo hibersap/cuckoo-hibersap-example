@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                template="/templates/template.xhtml">
+
+    <ui:define name="title">Customers</ui:define>
+
+    <ui:define name="body">
+
+        <h:outputStylesheet target="head">
+            .even-row {
+                background-color: #FCFFFE;
+            }
+
+            .odd-row {
+                background-color: #ECF3FE;
+            }
+
+            .active-row {
+                background-color: #FFEBDA !important;
+                cursor: pointer;
+            }
+        </h:outputStylesheet>
+
+        <rich:panel header="Customer Search" style="width:400px">
+            <h:form prependId="false">
+                <h:panelGrid columns="3"
+                             title="Customer Name Pattern: Case-sensitive, Wildcards: * and ?; Max. Rows: A value between 1 and 5000">
+
+                    <h:outputLabel value="Customer Name Pattern: " for="CustomerName"/>
+                    <h:inputText id="CustomerName" value="#{customerSearchUi.namePattern}"/>
+                    <h:panelGroup/>
+
+                    <h:outputLabel value="Max Rows: " for="MaxRows"/>
+                    <h:inputText id="MaxRows" value="#{customerSearchUi.maxRows}" maxlength="4">
+                        <f:validateLongRange minimum="1" maximum="5000"/>
+                        <f:validateRequired/>
+                    </h:inputText>
+                    <rich:message for="MaxRows"/>
+
+                </h:panelGrid>
+                <h:commandButton id="SearchButton"
+                                 action="#{customerSearchUi.search}"
+                                 value="Search"/>
+                <br/><br/>
+                <rich:messages globalOnly="true"/>
+            </h:form>
+        </rich:panel>
+
+        <br/>
+
+        <h:form id="customerResult" prependId="false">
+            <rich:dataTable id="CustomerTable" var="customer"
+                            iterationStatusVar="it"
+                            value="#{customerListUi.customers}"
+                            rowClasses="odd-row, even-row"
+                            styleClass="stable"
+                            width="800px">
+
+                <rich:column>
+                    <f:facet name="header">Customer Number</f:facet>
+                    <h:outputText value="#{customer.id}"/>
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">Name</f:facet>
+                    <h:outputText value="#{customer.name}"/>
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">Form of Address</f:facet>
+                    <h:outputText value="#{customer.formOfAddress}"/>
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">Street</f:facet>
+                    <h:outputText value="#{customer.street}"/>
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">P.O. Box</f:facet>
+                    <h:outputText value="#{customer.poBox}"/>
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">Postal Code</f:facet>
+                    <h:outputText value="#{customer.postalCode}"/>
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">City</f:facet>
+                    <h:outputText value="#{customer.city}"/>
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">Country</f:facet>
+                    <h:outputText value="#{customer.countryKeyIso}"/>
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">Region</f:facet>
+                    <h:outputText value="#{customer.region}"/>
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">Phone Number</f:facet>
+                    <h:outputText value="#{customer.phoneNumber}"/>
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">Email Address</f:facet>
+                    <h:outputText value="#{customer.email}"/>
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">Edit</f:facet>
+                    <a4j:commandLink styleClass="no-decor" render="editGrid" execute="@this"
+                                     oncomplete="#{rich:component('editPane')}.show()">
+                        <h:graphicImage value="/icons/edit.gif" alt="edit"/>
+                        <f:setPropertyActionListener target="#{customerEditUi.customer}" value="#{customer}"/>
+                    </a4j:commandLink>
+                </rich:column>
+            </rich:dataTable>
+        </h:form>
+        
+        <rich:popupPanel header="Edit Customer Data"
+                         id="editPane"
+                         domElementAttachment="parent"
+                         width="400" height="400">
+
+            <h:form id="CustomerEdit">
+                <h:panelGrid columns="3" id="editGrid">
+                    <h:outputText value="Customer Number"/>
+                    <h:inputText value="#{customerEditUi.customer.id}" readonly="true" required="true"/>
+                    <h:panelGroup/>
+                    <h:outputText value="Name"/>
+                    <h:inputText value="#{customerEditUi.customer.name}" id="Name"
+                                 required="true" requiredMessage="VIN is required">
+                    </h:inputText>
+                    <rich:message id="NameMsg" for="Name"/>
+                    <h:outputText value="Form Of Address"/>
+                    <h:inputText value="#{customerEditUi.customer.formOfAddress}"/>
+                    <h:panelGroup/>
+                    <h:outputText value="Street"/>
+                    <h:inputText value="#{customerEditUi.customer.street}"/>
+                    <h:panelGroup/>
+                    <h:outputText value="P.O. Box"/>
+                    <h:inputText value="#{customerEditUi.customer.poBox}"/>
+                    <h:panelGroup/>
+                    <h:outputText value="Postal Code"/>
+                    <h:inputText value="#{customerEditUi.customer.postalCode}"/>
+                    <h:panelGroup/>
+                    <h:outputText value="City"/>
+                    <h:inputText value="#{customerEditUi.customer.city}"/>
+                    <h:panelGroup/>
+                    <h:outputText value="Country"/>
+                    <h:inputText value="#{customerEditUi.customer.countryKeyIso}"/>
+                    <h:panelGroup/>
+                    <h:outputText value="Region"/>
+                    <h:inputText value="#{customerEditUi.customer.region}"/>
+                    <h:panelGroup/>
+                    <h:outputText value="Phone Number"/>
+                    <h:inputText value="#{customerEditUi.customer.phoneNumber}"/>
+                    <h:panelGroup/>
+                    <h:outputText value="Email Address"/>
+                    <h:inputText id="Email" value="#{customerEditUi.customer.email}"
+                                 validatorMessage="Not a valid email address">
+                        <f:validateRegex pattern="^.+@.+\..+"/>
+                    </h:inputText>
+                    <rich:message id="EmailMsg" for="Email"/>
+                </h:panelGrid>
+
+                <rich:messages globalOnly="true"/>
+
+                <a4j:commandButton value="Store" action="#{customerEditUi.store}" render="CustomerTable"
+                                   execute="editPane"
+                                   oncomplete="if (#{facesContext.maximumSeverity.ordinal lt 2}) {#{rich:component('editPane')}.hide();}"/>
+
+                <a4j:commandButton value="Cancel" onclick="#{rich:component('editPane')}.hide(); return false;"/>
+            </h:form>
+        </rich:popupPanel>
+
+        <rich:jQuery selector=".stable tr:odd" query="addClass('odd-row')"/>
+        <rich:jQuery selector=".stable tr:even" query="addClass('even-row')"/>
+        <rich:jQuery selector=".stable tr" event="mouseover" query="jQuery(this).addClass('active-row')"/>
+        <rich:jQuery selector=".stable tr" event="mouseout" query="jQuery(this).removeClass('active-row')"/>
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibersap>
+    <session-manager name="NSP">
+        <context>org.hibersap.execution.jca.JCAContext</context>
+        <jca-connection-factory>java:jboss/eis/sap/NSP</jca-connection-factory>
+        <annotated-classes>
+            <annotated-class>de.akquinet.jbosscc.cuckoo.example.model.CustomerSearch</annotated-class>
+            <annotated-class>de.akquinet.jbosscc.cuckoo.example.model.CustomerChange</annotated-class>
+        </annotated-classes>
+    </session-manager>
+</hibersap>
