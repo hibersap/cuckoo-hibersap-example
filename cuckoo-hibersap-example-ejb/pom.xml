@@ -7,7 +7,7 @@
     <parent>
         <groupId>de.akquinet.jbosscc</groupId>
         <artifactId>cuckoo-hibersap-example-parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.0-SNAPSHOT</version>
         <relativePath>../cuckoo-hibersap-example-parent</relativePath>
     </parent>
 

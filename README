@@ -1,0 +1,7 @@
+This is an example project for a Java EE application using Hibersap and the Cuckoo Resource Adapter for SAP.
+
+It shows how easy it is to call SAP functions from within EJBs making use of Container Managed Transactions.
+
+More info for the individual projects can be found here:
+  Hibersap: http://www.hibersap.org
+  Cuckoo: http://sourceforge.net/p/cuckoo-ra
