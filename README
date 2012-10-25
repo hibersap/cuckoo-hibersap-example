@@ -1,6 +1,14 @@
 This is an example project for a Java EE application using Hibersap and the Cuckoo Resource Adapter for SAP.
+The application implements a search for customers from the Flight Booking demo application in SAP where the data
+of individual customers can be changed.
 
-It shows how easy it is to call SAP functions from within EJBs making use of Container Managed Transactions.
+The project shows how easy it is to call SAP functions from within EJBs making use of Container Managed Transactions.
+It calls function module BAPI_FLCUST_GETLIST to search customers and BAPI_FLCUST_CHANGE to change the customer data.
+
+It uses the HibersapSessionInterceptor on an EJB to directly inject a Hibersap Session to work with.
+The Interceptor will take care of correctly opening and closing the Session.
+
+A Singleton EJB is used to configure Hibersap, create a SessionManager and bind it to JNDI.
 
 More info for the individual projects can be found here:
   Hibersap: http://www.hibersap.org

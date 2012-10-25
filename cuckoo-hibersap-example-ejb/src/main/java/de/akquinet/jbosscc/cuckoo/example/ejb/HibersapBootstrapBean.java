@@ -22,7 +22,7 @@ public class HibersapBootstrapBean
     private static final Logger LOG = Logger.getLogger( HibersapBootstrapBean.class.getName() );
 
     @PostConstruct
-    public void rebind()
+    public void rebindSessionManager()
     {
         SessionManager sessionManager = new AnnotationConfiguration().buildSessionManager();
 
@@ -41,7 +41,7 @@ public class HibersapBootstrapBean
     }
 
     @PreDestroy
-    public void unbind()
+    public void unbindSessionManager()
     {
         LOG.info( "Unbinding Hibersap SessionManager from JNDI name '" + JNDI_NAME + "'" );
 
