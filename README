@@ -15,6 +15,8 @@ correctly opening and closing the Session.
 A Singleton EJB is used to configure Hibersap, create a SessionManager
 and bind it to JNDI.
 
+The user interface is implemented using JSF2 and JBoss RichFaces.
+
 More info for the individual projects can be found here:
-  Hibersap: http://www.hibersap.org
-  Cuckoo: http://sourceforge.net/p/cuckoo-ra
+- Hibersap: http://www.hibersap.org
+- Cuckoo: http://sourceforge.net/p/cuckoo-ra
