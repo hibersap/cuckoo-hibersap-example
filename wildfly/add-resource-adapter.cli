@@ -1,0 +1,18 @@
+# use embedded mode because Docker currently does not allow running programs
+embed-server --server-config=standalone-full.xml
+
+# the resource adapter configuration
+/subsystem=resource-adapters/resource-adapter=cuckoo:add(archive=cuckoo-rar.rar,transaction-support=LocalTransaction)
+/subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp \
+    :add(class-name=org.cuckoo.ra.spi.CuckooManagedConnectionFactory,jndi-name=java:jboss/eis/sap/NSP,use-java-context=true,use-ccm=true, \
+         max-pool-size=20,pool-prefill=false,pool-use-strict-min=false,flush-strategy=FailingConnectionOnly,blocking-timeout-wait-millis=10000, \
+         background-validation=false,use-fast-fail=false)
+/subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp/config-properties=destinationName:add(value=NSP)
+/subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp/config-properties=password:add(value="password")
+/subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp/config-properties=username:add(value="sapuser")
+/subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp/config-properties=jcoClient:add(value="001")
+/subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp/config-properties=jcoSystemNumber:add(value="00")
+/subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp/config-properties=jcoApplicationServerHost:add(value="192.168.160.129")
+
+# Shutdown
+stop-embedded-server

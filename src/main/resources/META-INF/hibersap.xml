@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibersap>
+    <session-manager name="NSP">
+        <context>org.hibersap.execution.jca.JCAContext</context>
+        <jca-connection-factory>java:jboss/eis/sap/NSP</jca-connection-factory>
+        <annotated-classes>
+            <annotated-class>org.hibersap.customer.model.CustomerSearch</annotated-class>
+            <annotated-class>org.hibersap.customer.model.CustomerChange</annotated-class>
+        </annotated-classes>
+        <validation-mode>CALLBACK</validation-mode>
+    </session-manager>
+</hibersap>
