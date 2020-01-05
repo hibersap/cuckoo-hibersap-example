@@ -10,7 +10,21 @@ The Interceptor will take care of correctly opening and closing the Session.
 
 A Singleton EJB is used to configure Hibersap, create a SessionManager and bind it to JNDI when the application gets started.
 
-Example search with httpie: <code>http http://localhost:8080/customer/search/\*Forst\*</code>
+### Building and Running the Application
+
+You need a SAP Java Connector library installed in a local Maven repository or deployed to a remote repo with the coordinates org.hibersap:com.sap.conn.jco.sapjco3:3.1.2
+
+You need the corresponding native library for Linux on x86 / 64bit installed with the above Maven coordinates with type `so` and classifier `linuxx86_64`.
+
+You need a SAP ABAP system running.
+
+In `wildfly/add-resource-adapter.cli`, change the values for username, passwort, jcoClient, jcoSystemNumber and jcoApplicationServerHost to the values reflecting your SAP system.   
+
+To build the project and a ready-to-use docker image with a Wildfly application server running the example application, run `mvn clean install` from the command line.
+
+To start the Docker container run `docker-compose up`.
+
+For example REST calls see file `cuckoo.http`. When openend in IntelliJ IDEA, the HTTP calls can be executed from the editor.
 
 More info for the individual projects can be found here:
 - Hibersap: http://www.hibersap.org
