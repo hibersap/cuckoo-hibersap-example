@@ -8,7 +8,7 @@ import org.hibersap.annotations.ThrowExceptionOnError
 
 @Bapi("BAPI_FLCUST_GETLIST")
 @ThrowExceptionOnError(returnStructure = "TABLE/RETURN")
-class CustomerSearch(
+data class CustomerSearch(
 
         @Parameter("CUSTOMER_NAME")
         @Import

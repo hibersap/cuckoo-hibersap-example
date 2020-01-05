@@ -1,0 +1,46 @@
+GET http://localhost:8080/booking/api/customer/search?pattern=*BC*&max=-2
+Accept: application/json
+
+# =>
+# HTTP/1.1 200 OK
+# Connection: keep-alive
+# Content-Type: application/json
+# Content-Length: 227
+# Date: Sun, 05 Jan 2020 11:57:46 GMT
+#
+# [
+#  {
+#    "name": "ABC Dienstleistungen GmbH",
+#    "formOfAddress": "Firma",
+#    "street": "Am Hohenrech 87",
+#    "poBox": "",
+#    "postalCode": "66666",
+#    "city": "Kaiserslautern",
+#    "countryKeyIso": "DE",
+#    "region": "",
+#    "phoneNumber": "",
+#    "email": "",
+#    "id": "00000098"
+#  }
+# ]
+
+
+###
+
+PUT http://localhost:8080/booking/api/customer/00000098
+Content-Type: application/json
+
+{
+    "name": "ABC Dienstleistungen GmbH",
+    "formOfAddress": "Firma",
+    "street": "Am Hohenrech 87",
+    "poBox": "11111",
+    "postalCode": "66666",
+    "city": "Kaiserslautern",
+    "countryKeyIso": "DEDE",
+    "region": "",
+    "phoneNumber": "",
+    "email": ""
+}
+
+###

@@ -12,7 +12,7 @@ embed-server --server-config=standalone-full.xml
 /subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp/config-properties=username:add(value="sapuser")
 /subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp/config-properties=jcoClient:add(value="001")
 /subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp/config-properties=jcoSystemNumber:add(value="00")
-/subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp/config-properties=jcoApplicationServerHost:add(value="192.168.160.129")
+/subsystem=resource-adapters/resource-adapter=cuckoo/connection-definitions=nsp/config-properties=jcoApplicationServerHost:add(value="192.168.101.130")
 
 # Shutdown
 stop-embedded-server

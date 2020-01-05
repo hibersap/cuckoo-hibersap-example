@@ -19,17 +19,16 @@ class CustomerService {
     @HibersapSession(JNDI_NAME)
     private lateinit var session: Session
 
-    fun search(nameSearchPattern: String, maxRows: Int): List<CustomerWithId> {
+    fun find(nameSearchPattern: String, maxRows: Int): List<CustomerWithId> {
         val customerSearch = CustomerSearch(nameSearchPattern, maxRows)
         session.execute(customerSearch)
         return customerSearch.customers
     }
 
-    fun store(customerId: String, customer: Customer): List<ReturnMessage> {
-        LOGGER.info("Storing customer $customer")
+    fun update(customerId: String, customer: Customer) {
+        LOGGER.info("Updating customer $customer")
         val customerChange = CustomerChange(customerId = customerId, customerData = customer)
         session.execute(customerChange)
-        return customerChange.returnMessages
     }
 
     companion object {

@@ -1,13 +1,10 @@
 package org.hibersap.customer.model
 
-import org.hibersap.annotations.Bapi
-import org.hibersap.annotations.Import
-import org.hibersap.annotations.Parameter
-import org.hibersap.annotations.ParameterType
-import org.hibersap.annotations.Table
+import org.hibersap.annotations.*
 
 @Bapi("BAPI_FLCUST_CHANGE")
-class CustomerChange(
+@ThrowExceptionOnError(returnStructure = "TABLE/RETURN")
+data class CustomerChange(
         @Import @Parameter("CUSTOMERNUMBER")
         private val customerId: String,
 
