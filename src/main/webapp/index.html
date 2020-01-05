@@ -32,19 +32,22 @@
       </div>
     </div>
   </fieldset>
+  <fieldset>
+    <legend id="searchResultLegend">Search Result</legend>
+    <table class="striped hoverable">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+      </tr>
+      </thead>
+      <tbody id="tableBody">
+      </tbody>
+    </table>
+    <div id="spinner" class="spinner hidden"></div>
+  </fieldset>
 </form>
-<table>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Address</th>
-  </tr>
-  </thead>
-  <tbody id="tableBody">
-  </tbody>
-</table>
-<div id="spinner" class="spinner hidden"></div>
 <script src="script/customer-search.js"></script>
 <script src="script/customer-service.js"></script>
 </body>

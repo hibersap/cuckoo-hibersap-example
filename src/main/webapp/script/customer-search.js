@@ -2,7 +2,8 @@ function searchCustomers()
 {
     let valid = document.getElementById('searchForm').checkValidity();
 
-    if (valid){
+    if (valid)
+    {
         let searchPattern = document.getElementById('searchPattern').value;
         let maxRows = parseInt(document.getElementById('maxRows').value);
 
@@ -13,7 +14,8 @@ function searchCustomers()
 
         document.getElementById('spinner').classList.remove('hidden');
     }
-    else {
+    else
+    {
         alert('The search parameters are not valid')
     }
 }
@@ -29,6 +31,8 @@ function showCustomers(customers)
         let address = customer.street + ', ' + customer.postalCode + ' ' + customer.city + ', ' + customer.countryKeyIso;
         addTableRow(tableBody, customer.id, customer.name, address);
     }
+
+    document.getElementById('searchResultLegend').innerText = "Search Result (" + customers.length + " rows found)"
 }
 
 function addTableRow(tableBody, id, name, address)
