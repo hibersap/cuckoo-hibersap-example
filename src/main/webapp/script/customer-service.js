@@ -1,4 +1,4 @@
-function findCustomers(searchNamePattern)
+function findCustomers(searchNamePattern, maxRows)
 {
     var request = new XMLHttpRequest();
     request.onload = function () {
@@ -12,6 +12,6 @@ function findCustomers(searchNamePattern)
         console.log('customers', customers);
         showCustomers(customers)
     };
-    request.open("GET", location.pathname + "api/customer/search?pattern=" + searchNamePattern + "&max=10", true);
+    request.open("GET", location.pathname + "api/customer/search?pattern=" + searchNamePattern + "&max=" + maxRows, true);
     request.send();
 }

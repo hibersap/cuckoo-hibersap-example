@@ -1,12 +1,21 @@
 function searchCustomers()
 {
-    let searchPattern = document.getElementById('searchPattern').value;
-    findCustomers(searchPattern);
+    let valid = document.getElementById('searchForm').checkValidity();
 
-    let tableBody = document.getElementById("tableBody");
-    removeTableRows(tableBody);
+    if (valid){
+        let searchPattern = document.getElementById('searchPattern').value;
+        let maxRows = parseInt(document.getElementById('maxRows').value);
 
-    document.getElementById('spinner').classList.remove('hidden');
+        findCustomers(searchPattern, isNaN(maxRows) ? 100 : maxRows);
+
+        let tableBody = document.getElementById("tableBody");
+        removeTableRows(tableBody);
+
+        document.getElementById('spinner').classList.remove('hidden');
+    }
+    else {
+        alert('The search parameters are not valid')
+    }
 }
 
 function showCustomers(customers)

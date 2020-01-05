@@ -7,12 +7,30 @@
 </head>
 <body>
 <h1>Flight Customers</h1>
-<form>
+<form id="searchForm">
   <fieldset>
     <legend>Customer Search</legend>
-    <label for="searchPattern">Name Search Pattern</label>
-    <input type="text" id="searchPattern" placeholder="Search Pattern" size="50"/>
-    <label class="button primary" onclick="searchCustomers();return false">Search</label>
+    <div class="row">
+      <div class="col-sm-2">
+        <label for="searchPattern">Name Pattern</label>
+      </div>
+      <div class="col-sm-10">
+        <input type="text" id="searchPattern" size="50" value="*" required/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label class="col-lg-4" for="maxRows">Max. Rows</label>
+      </div>
+      <div class="col-sm-10">
+        <input type="number" id="maxRows" value="100" max="1000" min="1" required/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <label class="button primary" onclick="searchCustomers();return false">Search</label>
+      </div>
+    </div>
   </fieldset>
 </form>
 <table>
