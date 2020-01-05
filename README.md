@@ -18,6 +18,8 @@ You need a SAP Java Connector library installed in a local Maven repository or d
 
 You need the corresponding native library for Linux on x86 / 64bit installed with the above Maven coordinates with type `so` and classifier `linuxx86_64`.
 
+You need the Cuckoo Resource Adapter RAR installed with the following Maven coordinates: `org.cuckoo-ra:cuckoo-rar:1.1.0` with type `zip`.
+
 You need a SAP ABAP system running.
 
 In `wildfly/add-resource-adapter.cli`, change the values for username, passwort, jcoClient, jcoSystemNumber and jcoApplicationServerHost to the values reflecting your SAP system.   
@@ -26,7 +28,7 @@ To build the project and a ready-to-use docker image with a Wildfly application 
 
 To start the Docker container run `docker-compose up`.
 
-For example REST calls see file `cuckoo.http`. When openend in IntelliJ IDEA, the HTTP calls can be executed from the editor.
+For example REST calls, see file `cuckoo.http`. When openend in IntelliJ IDEA, the HTTP calls can directly be executed from the editor.
 
 More info for the individual projects can be found here:
 - Hibersap: http://www.hibersap.org
