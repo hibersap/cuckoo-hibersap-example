@@ -1,3 +1,5 @@
+### The Cuckoo Hibersap application 
+
 This is an example project for a Java EE application written in Kotlin using Hibersap and the Cuckoo Resource Adapter for SAP.
 The application implements a search for customers from the Flight Booking demo application in SAP.
 The application has REST endpoints for searching customers and for changing the data of an individual customer in SAP.
@@ -10,7 +12,7 @@ The Interceptor will take care of correctly opening and closing the Session.
 
 A Singleton EJB is used to configure Hibersap, create a SessionManager and bind it to JNDI when the application gets started.
 
-### Building and Running the Application
+### Building and running
 
 You need a SAP Java Connector library installed in a local Maven repository or deployed to a remote repo with the coordinates org.hibersap:com.sap.conn.jco.sapjco3:3.1.2
 
