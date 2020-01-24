@@ -1,3 +1,5 @@
+let allCustomers = [];
+
 function searchCustomers()
 {
     let valid = document.getElementById('searchForm').checkValidity();
@@ -22,26 +24,33 @@ function searchCustomers()
 
 function showCustomers(customers)
 {
+    allCustomers = customers;
+
     document.getElementById('spinner').classList.add('hidden');
 
     let tableBody = document.getElementById("tableBody");
-    for (let i = 0; i < customers.length; i++)
+    for (let i = 0; i < allCustomers.length; i++)
     {
-        const customer = customers[i];
+        const customer = allCustomers[i];
         let address = customer.street + ', ' + customer.postalCode + ' ' + customer.city + ', ' + customer.countryKeyIso;
         addTableRow(tableBody, customer.id, customer.name, address);
     }
 
-    document.getElementById('searchResultLegend').innerText = "Search Result (" + customers.length + " rows found)"
+    document.getElementById('searchResultLegend').innerText = "Search Result (" + allCustomers.length + " rows found)"
 }
 
 function addTableRow(tableBody, id, name, address)
 {
     let tableRow = document.createElement("tr");
+    tableRow.setAttribute("id", id);
     tableRow.appendChild(createTableData("ID", id));
     tableRow.appendChild(createTableData("Name", name));
     tableRow.appendChild(createTableData("Address", address));
-    tableBody.appendChild(tableRow)
+    let tr = tableBody.appendChild(tableRow);
+    tr.addEventListener("click", function () {
+        showEditForm();
+        fillEditForm(this.id);
+    });
 }
 
 function createTableData(dataLabel, content)
@@ -58,4 +67,10 @@ function removeTableRows(tableBody)
     {
         tableBody.firstChild.remove();
     }
+}
+
+function showEditForm()
+{
+    document.getElementById("searchForm").classList.add("hidden");
+    document.getElementById("editForm").classList.remove("hidden");
 }

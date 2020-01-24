@@ -109,6 +109,13 @@
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.3</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Dependencies>org.hibernate.validator</Dependencies>
+            </manifestEntries>
+          </archive>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-dependency-plugin</artifactId>

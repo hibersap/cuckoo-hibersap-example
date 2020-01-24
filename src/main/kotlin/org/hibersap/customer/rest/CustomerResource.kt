@@ -45,6 +45,7 @@ class CustomerResource {
         if (customer == null) throw BadRequestException("Customer data is missing")
 
         LOGGER.info("changing customer with id '$id': $customer")
+
         try {
             customerService.update(id, customer)
             return Response.noContent().build()

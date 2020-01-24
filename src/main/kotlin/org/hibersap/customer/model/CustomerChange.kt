@@ -1,6 +1,7 @@
 package org.hibersap.customer.model
 
 import org.hibersap.annotations.*
+import javax.validation.Valid
 
 @Bapi("BAPI_FLCUST_CHANGE")
 @ThrowExceptionOnError(returnStructure = "TABLE/RETURN")
@@ -9,6 +10,7 @@ data class CustomerChange(
         private val customerId: String,
 
         @Import @Parameter(value = "CUSTOMER_DATA", type = ParameterType.STRUCTURE)
+        @field:Valid
         private val customerData: Customer,
 
         @Import @Parameter(value = "CUSTOMER_DATA_X", type = ParameterType.STRUCTURE)

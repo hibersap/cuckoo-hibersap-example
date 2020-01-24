@@ -20,7 +20,7 @@
     </div>
     <div class="row">
       <div class="col-sm-2">
-        <label class="col-lg-4" for="maxRows">Max. Rows</label>
+        <label for="maxRows">Max. Rows</label>
       </div>
       <div class="col-sm-10">
         <input type="number" id="maxRows" value="100" max="1000" min="1" required/>
@@ -48,7 +48,110 @@
     <div id="spinner" class="spinner hidden"></div>
   </fieldset>
 </form>
+<form id="editForm" class="hidden">
+  <fieldset>
+    <legend>Edit Customer</legend>
+    <div id="editCustomer">
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="editId">ID</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" id="editId" size="50" value="" readonly/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="editFormOfAddress">Form of Address</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" id="editFormOfAddress" size="50" value=""/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="editName">Name</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" id="editName" size="50" value=""/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="editStreet">Street</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" id="editStreet" size="50" value=""/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="editPOBox">PO Box</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" id="editPOBox" size="50" value=""/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="editPostalCode">Postal Code</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" id="editPostalCode" size="50" value=""/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="editCity">City</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" id="editCity" size="50" value=""/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="editCountryKeyIso">Country Key (ISO)</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" id="editCountryKeyIso" size="50" value=""/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="editRegion">Region</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" id="editRegion" size="50" value=""/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="editPhoneNumber">Phone Number</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" id="editPhoneNumber" size="50" value=""/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label for="editEmail">Email</label>
+        </div>
+        <div class="col-sm-10">
+          <input type="text" id="editEmail" size="50" value=""/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6">
+          <button onclick="saveCustomer();return false;" class="primary">Save Changes</button>
+          <button onclick="backToSearchForm();return false;" class="secondary">Back to Search</button>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
 <script src="script/customer-search.js"></script>
+<script src="script/customer-edit.js"></script>
 <script src="script/customer-service.js"></script>
 </body>
 </html>
