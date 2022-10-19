@@ -17,7 +17,7 @@
     <java.version>1.8</java.version>
     <javaee-api.version>8.0.1</javaee-api.version>
     <hibersap.version>1.4.0</hibersap.version>
-    <jackson.version>2.10.1</jackson.version>
+    <jackson.version>2.13.4.1</jackson.version>
   </properties>
   
   <build>
